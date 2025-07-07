@@ -1,0 +1,20 @@
+2025-07-06 21:36:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found (this database is empty); SQL statement:
+SELECT COUNT(*) FROM DATABASECHANGELOGLOCK [42104-214]
+2025-07-06 21:36:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, [*]year)\000aVALUES('Some very interesting description for the film Walk Or Die', 120, 1, 1, 18, 'Walk Or Die', 2020);\000a\000aINSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)\000aVALUES('Some very interesting description for the film Grizzly', 150, 2, 2, 14, 'Grizzly', 2023);\000a\000aINSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)\000aVALUES('Some very interesting description for the film Cliffhanger', 90, 3, 3, 16, 'Cliffhanger', 2019);\000a\000aINSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)\000aVALUES('Some very interesting description for the film Witchboardd', 100, 4, 4, 14, 'Witchboard', 2010);\000a\000aINSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)\000aVALUES('Some very interesting description for the film Hypnotic', 120, 5, 5, 18, 'Hypnotic', 2025);"; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, [*]year)\000aVALUES('Some very interesting description for the film Walk Or Die', 120, 1, 1, 18, 'Walk Or Die', 2020);\000a\000aINSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)\000aVALUES('Some very interesting description for the film Grizzly', 150, 2, 2, 14, 'Grizzly', 2023);\000a\000aINSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)\000aVALUES('Some very interesting description for the film Cliffhanger', 90, 3, 3, 16, 'Cliffhanger', 2019);\000a\000aINSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)\000aVALUES('Some very interesting description for the film Witchboardd', 100, 4, 4, 14, 'Witchboard', 2010);\000a\000aINSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)\000aVALUES('Some very interesting description for the film Hypnotic', 120, 5, 5, 18, 'Hypnotic', 2025);"; expected "identifier"; SQL statement:
+INSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)
+VALUES('Some very interesting description for the film Walk Or Die', 120, 1, 1, 18, 'Walk Or Die', 2020);
+
+INSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)
+VALUES('Some very interesting description for the film Grizzly', 150, 2, 2, 14, 'Grizzly', 2023);
+
+INSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)
+VALUES('Some very interesting description for the film Cliffhanger', 90, 3, 3, 16, 'Cliffhanger', 2019);
+
+INSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)
+VALUES('Some very interesting description for the film Witchboardd', 100, 4, 4, 14, 'Witchboard', 2010);
+
+INSERT INTO films(description, duration_in_minutes, file_id, genre_id, minimal_age, name, year)
+VALUES('Some very interesting description for the film Hypnotic', 120, 5, 5, 18, 'Hypnotic', 2025); [42001-214]
