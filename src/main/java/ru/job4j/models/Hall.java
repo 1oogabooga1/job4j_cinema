@@ -1,8 +1,17 @@
 package ru.job4j.models;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class Hall {
+
+    public static final Map<String, String> MAP_COLUMN = Map.of(
+            "id", "id",
+            "name", "name",
+            "row_count", "rowCount",
+            "place_count", "placeCount",
+            "description", "description"
+    );
 
     private int id;
 
