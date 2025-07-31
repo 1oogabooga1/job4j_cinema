@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+<div class="container mt-4">
+    <h2>Кинотека</h2>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Постер</th>
+                <th scope="col">Название фильма</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Год съёмок</th>
+                <th scope="col">Жанр</th>
+                <th scope="col">Минимальный возраст</th>
+                <th scope="col">Длительность</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="film : ${films}">
+                <td th:text="${film.id}"></td>
+                <td>
+                    <img th:src="@{/files/{fileId}(fileId=${film.fileId})}"
+                         alt="poster"
+                         style="width:50px; height:auto; margin-right:10px;"> </td>
+                <td th:text="${film.name}"></td>
+                <td th:text="${film.description}"></td>
+                <td th:text="${film.year}"></td>
+                <td th:text="${film.genre}"></td>
+                <td th:text="${film.minimalAge}"></td>
+                <td th:text="${film.durationInMinutes}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>

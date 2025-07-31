@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-4">
+    <div class="alert alert-success text-center">
+        <h2 class="mb-3">✅ Покупка успешна!</h2>
+        <p class="lead">Ваш билет был успешно оформлен. Спасибо, что выбрали наш кинотеатр!</p>
+        <a href="/" class="btn btn-primary mt-3">Вернуться на главную</a>
+    </div>
+</div>
+
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>

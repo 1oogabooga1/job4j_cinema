@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-4">
+    <h2 th:text="${filmDto.name}">Название фильма</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img th:src="@{/files/{id}(id=${filmDto.fileId})}" class="img-fluid rounded" alt="Постера нет">
+        </div>
+        <div class="col-md-8">
+            <p th:text="${filmDto.description}">Описание фильма</p>
+            <p><strong>Начало:</strong> <span th:text="${filmSession.startTime}"></span></p>
+            <p><strong>Конец:</strong> <span th:text="${filmSession.endTime}"></span></p>
+            <p><strong>Цена:</strong> <span th:text="${filmSession.price}"></span> ₽</p>
+        </div>
+    </div>
+
+    <!-- ✅ ФОРМА -->
+    <form th:action="@{/tickets/buy}" method="post">
+        <!-- скрыто передаем id сеанса -->
+        <input type="hidden" name="sessionId" th:value="${filmSession.id}"/>
+
+        <div class="mb-3">
+            <label for="row"><b>Ряд</b></label>
+            <select class="form-control" id="row" name="rowNumber">
+                <option th:each="i : ${#numbers.sequence(1, hall.rowCount)}"
+                        th:value="${i}"
+                        th:text="${i}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="place"><b>Место</b></label>
+            <select class="form-control" id="place" name="placeNumber">
+                <option th:each="j : ${#numbers.sequence(1, hall.placeCount)}"
+                        th:value="${j}"
+                        th:text="${j}">
+                </option>
+            </select>
+        </div>
+
+        <!-- ✅ Кнопка внутри формы -->
+        <button type="submit" class="btn btn-primary mt-2">Купить билет</button>
+    </form>
+</div>
+
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>

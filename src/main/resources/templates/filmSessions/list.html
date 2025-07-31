@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-4">
+    <h2>Сеансы фильмов</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Постер</th>
+            <th>Фильм</th>
+            <th>Зал</th>
+            <th>Начало</th>
+            <th>Конец</th>
+            <th>Цена</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="filmSession : ${filmSessions}">
+            <td th:text="${filmSession.id}"></td>
+            <td>
+                <img th:src="@{/files/{fileId}(fileId=${filmSession.fileId})}"
+                     alt="poster"
+                     style="width:50px; height:auto; margin-right:10px;">
+            <td>
+                <a th:text="${filmSession.filmName}"
+                    th:href="@{/tickets/buy/{filmSessionId}(filmSessionId=${filmSession.id})}">
+                </a>
+            </td>
+            <td th:text="${filmSession.hallId}"></td>
+            <td th:text="${#temporals.format(filmSession.startTime, 'dd.MM.yyyy HH:mm')}"></td>
+            <td th:text="${#temporals.format(filmSession.endTime, 'dd.MM.yyyy HH:mm')}"></td>
+            <td th:text="${filmSession.price} + ' ₽'"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<footer th:include="fragments/footer :: footer"></footer>
+
+</body>
+</html>

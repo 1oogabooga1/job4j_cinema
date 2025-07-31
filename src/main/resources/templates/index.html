@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h1 class="mb-3">Кинотеатр</h1>
+            <p class="lead">
+                Cinema — кинотеатр, где фильмы оживают.
+                Мы не просто показываем кино — мы создаём атмосферу: уютные залы, яркие премьеры, неожиданные ретроспективы и особые кинопоказы.
+                Здесь каждый сеанс — событие.
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>
