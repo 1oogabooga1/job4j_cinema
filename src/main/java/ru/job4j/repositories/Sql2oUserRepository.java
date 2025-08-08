@@ -45,4 +45,15 @@ public class Sql2oUserRepository implements UserRepository {
             return Optional.ofNullable(user);
         }
     }
+
+    public void deleteAllUsers() {
+        try (var connection = sql2o.open()) {
+            var sql = """
+                    DELETE FROM users
+                    """;
+            var query = connection.createQuery(sql)
+                    .executeUpdate();
+            query.getResult();
+        }
+    }
 }

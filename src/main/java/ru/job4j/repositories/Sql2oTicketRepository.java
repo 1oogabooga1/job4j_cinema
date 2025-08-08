@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public class Sql2oTicketRepository implements TicketRepository {
 
-    private Sql2o sql2o;
+    private final Sql2o sql2o;
 
     public Sql2oTicketRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
@@ -30,7 +30,9 @@ public class Sql2oTicketRepository implements TicketRepository {
                     .executeUpdate();
             ticket.setId(query.getKey(Integer.class));
             return Optional.of(ticket);
-        } catch (Exception ignore) { }
+        } catch (Exception ignore) {
+            //ignore exception
+        }
         return Optional.empty();
     }
 
@@ -47,4 +49,12 @@ public class Sql2oTicketRepository implements TicketRepository {
         }
     }
 
+    public void deleteAllTickets() {
+        try (var connection = sql2o.open()) {
+            var sql = """
+                   DELETE FROM tickets 
+                   """;
+            connection.createQuery(sql).executeUpdate();
+        }
+    }
 }
