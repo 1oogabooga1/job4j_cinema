@@ -50,7 +50,9 @@
             <property name="tokens" value="METHOD_DEF"/>
             <property name="max" value="40"/>
         </module>
-        <module name="ParameterNumber"/>
+        <module name="ParameterNumber">
+            <property name="max" value="10"/> <!-- например, разрешить до 10 -->
+        </module>
 
         <!-- Checks for whitespace                               -->
         <!-- See http://checkstyle.sf.net/config_whitespace.html -->
@@ -103,6 +105,7 @@
         <module name="UpperEll"/>
         <module name="EmptyBlock"/>
         <module name="EmptyBlock">
+            <property name="option" value="text"/>
             <property name="tokens" value="LITERAL_CATCH"/>
         </module>
     </module>
