@@ -2,6 +2,7 @@ package ru.job4j.repositories;
 
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 import ru.job4j.models.Ticket;
 
 import java.util.Optional;
@@ -30,10 +31,9 @@ public class Sql2oTicketRepository implements TicketRepository {
                     .executeUpdate();
             ticket.setId(query.getKey(Integer.class));
             return Optional.of(ticket);
-        } catch (Exception ignore) {
-            //ignore exception
+        } catch (Sql2oException e) {
+            return Optional.empty();
         }
-        return Optional.empty();
     }
 
     @Override
