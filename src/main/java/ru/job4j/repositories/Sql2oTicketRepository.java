@@ -32,7 +32,10 @@ public class Sql2oTicketRepository implements TicketRepository {
             ticket.setId(query.getKey(Integer.class));
             return Optional.of(ticket);
         } catch (Sql2oException e) {
-            return Optional.empty();
+            if (e.getMessage().toLowerCase().contains("duplicate")) {
+                return Optional.empty();
+            }
+            throw e;
         }
     }
 
@@ -52,8 +55,8 @@ public class Sql2oTicketRepository implements TicketRepository {
     public void deleteAllTickets() {
         try (var connection = sql2o.open()) {
             var sql = """
-                   DELETE FROM tickets 
-                   """;
+                    DELETE FROM tickets 
+                    """;
             connection.createQuery(sql).executeUpdate();
         }
     }
