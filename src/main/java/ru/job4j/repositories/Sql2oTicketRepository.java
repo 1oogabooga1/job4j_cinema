@@ -1,5 +1,6 @@
 package ru.job4j.repositories;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -7,6 +8,7 @@ import ru.job4j.models.Ticket;
 
 import java.util.Optional;
 
+@Slf4j
 @Repository
 public class Sql2oTicketRepository implements TicketRepository {
 
@@ -33,8 +35,11 @@ public class Sql2oTicketRepository implements TicketRepository {
             return Optional.of(ticket);
         } catch (Sql2oException e) {
             if (e.getMessage().toLowerCase().contains("duplicate")) {
+                log.warn("Duplicate ticket detected: row={}, place={}, session={}, user={}",
+                        ticket.getRowNumber(), ticket.getPlaceNumber(), ticket.getSessionId(), ticket.getUserId());
                 return Optional.empty();
             }
+            log.error(e.getMessage());
             throw e;
         }
     }
