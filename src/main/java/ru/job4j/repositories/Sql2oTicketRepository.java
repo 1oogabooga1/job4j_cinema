@@ -1,6 +1,7 @@
 package ru.job4j.repositories;
 
 import lombok.extern.slf4j.Slf4j;
+import org.postgresql.util.PSQLException;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -34,10 +35,10 @@ public class Sql2oTicketRepository implements TicketRepository {
             ticket.setId(query.getKey(Integer.class));
             return Optional.of(ticket);
         } catch (Sql2oException e) {
-            if (e.getMessage().toLowerCase().contains("duplicate")) {
-                log.warn("Duplicate ticket detected: row={}, place={}, session={}, user={}",
-                        ticket.getRowNumber(), ticket.getPlaceNumber(), ticket.getSessionId(), ticket.getUserId());
-                return Optional.empty();
+            if (e.getCause() instanceof PSQLException pg && "23505".equals(pg.getSQLState())) {
+                    log.warn("Duplicate ticket detected: row={}, place={}, session={}, user={}",
+                            ticket.getRowNumber(), ticket.getPlaceNumber(), ticket.getSessionId(), ticket.getUserId());
+                    return Optional.empty();
             }
             log.error(e.getMessage());
             throw e;
