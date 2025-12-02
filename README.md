@@ -77,6 +77,9 @@ http://localhost:8080/
 <img width="1435" height="861" alt="image" src="https://github.com/user-attachments/assets/0bd59ce1-f2b2-414d-a937-23652fb58b37" />
 <img width="1437" height="862" alt="image" src="https://github.com/user-attachments/assets/34e18bbb-c24c-453d-8b55-d7821400d858" />
 <img width="1440" height="862" alt="image" src="https://github.com/user-attachments/assets/2e963170-1d81-4bc5-aac8-f56a48d6a82f" />
+<img width="1440" height="871" alt="image" src="https://github.com/user-attachments/assets/3dc269cd-b608-474f-a7bf-430221a3bbc0" />
+<img width="1437" height="394" alt="image" src="https://github.com/user-attachments/assets/2e71b2cd-245b-4cd2-ad05-c4c9497ff449" />
+<img width="1440" height="438" alt="image" src="https://github.com/user-attachments/assets/d4a4f0f2-2708-4b34-9119-a0c9bad20e30" />
 
 
 
