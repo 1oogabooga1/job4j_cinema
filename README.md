@@ -72,3 +72,11 @@ http://localhost:8080/
 | Login | http://localhost:8080/users/login   |
 
 ## Screenshots
+<img width="1439" height="852" alt="image" src="https://github.com/user-attachments/assets/ce7067e5-a950-4f34-9505-e7332423bac0" />
+<img width="1436" height="865" alt="image" src="https://github.com/user-attachments/assets/ff45db96-4de4-41a0-a012-42d67089ff36" />
+<img width="1435" height="861" alt="image" src="https://github.com/user-attachments/assets/0bd59ce1-f2b2-414d-a937-23652fb58b37" />
+<img width="1437" height="862" alt="image" src="https://github.com/user-attachments/assets/34e18bbb-c24c-453d-8b55-d7821400d858" />
+<img width="1440" height="862" alt="image" src="https://github.com/user-attachments/assets/2e963170-1d81-4bc5-aac8-f56a48d6a82f" />
+
+
+
