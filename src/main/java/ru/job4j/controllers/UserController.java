@@ -30,7 +30,7 @@ public class UserController {
     public String register(@ModelAttribute User user, Model model) {
         var savedUser = userService.save(user);
         if (savedUser.isEmpty()) {
-            model.addAttribute("error", "Пользователь с такой почтой уже существует");
+            model.addAttribute("error", "User with the same e-mail already exists");
             return "errors/404";
         }
         return "redirect:/";
@@ -45,7 +45,7 @@ public class UserController {
     public String login(@ModelAttribute User user, Model model, HttpServletRequest request) {
         var userOptional = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
         if (userOptional.isEmpty()) {
-            model.addAttribute("error", "Почта или пароль введены неправильно");
+            model.addAttribute("error", "There is a mistake in e-mail or in password");
             return "users/login";
         }
         var session = request.getSession();

@@ -54,8 +54,7 @@ public class TicketController {
         ticket.setUserId(user.getId());
         var savedTicket = ticketService.save(ticket);
         if (savedTicket.isEmpty()) {
-            model.addAttribute("error", "Не удалось приобрести билет на заданное место. "
-                    + "Вероятно оно уже занято. Перейдите на страницу бронирования билетов и попробуйте снова.");
+            model.addAttribute("error", "This place probably is already taken, please choose another one.");
             return "errors/404";
         }
         return "tickets/successful";

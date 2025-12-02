@@ -12,20 +12,20 @@
                     <p class="text-danger" th:text="${error}"></p>
                 </div>
                 <div class="mb-3">
-                    <label for="fullName" class="form-label"><b>Имя</b></label>
+                    <label for="fullName" class="form-label"><b>Name</b></label>
                     <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Владислав" required>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label"><b>Почта</b></label>
+                    <label for="email" class="form-label"><b>E-mail</b></label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="ivan@male.ru" required>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label"><b>Пароль</b></label>
+                    <label for="password" class="form-label"><b>Password</b></label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-primary me-2" type="submit">Зарегистрироваться</button>
-                    <a class="btn btn-danger" th:href="@{/}">Отмена</a>
+                    <button class="btn btn-primary me-2" type="submit">Register</button>
+                    <a class="btn btn-danger" th:href="@{/}">Cancel</a>
                 </div>
             </form>
         </div>
