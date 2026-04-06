@@ -51,7 +51,7 @@ class UserControllerTest {
         assertThat(firstView).isEqualTo("redirect:/");
         assertThat(secondView).isEqualTo("errors/404");
         assertThat(model.getAttribute("error"))
-                .isEqualTo("Пользователь с такой почтой уже существует");
+                .isEqualTo("User with the same e-mail already exists");
     }
 
     @Test
@@ -81,6 +81,6 @@ class UserControllerTest {
         var view = userController.login(user, model, request);
 
         assertThat(view).isEqualTo("users/login");
-        assertThat(model.getAttribute("error")).isEqualTo("Почта или пароль введены неправильно");
+        assertThat(model.getAttribute("error")).isEqualTo("There is a mistake in e-mail or in password");
     }
 }

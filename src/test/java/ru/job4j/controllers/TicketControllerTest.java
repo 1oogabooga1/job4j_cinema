@@ -66,8 +66,7 @@ class TicketControllerTest {
         var view = ticketController.buy(ticket, model, session);
 
         assertThat(view).isEqualTo("errors/404");
-        assertThat(model.getAttribute("error")).isEqualTo("Не удалось приобрести билет "
-                + "на заданное место. Вероятно оно уже занято. Перейдите на страницу бронирования билетов и попробуйте снова.");
+        assertThat(model.getAttribute("error")).isEqualTo("This sit probably is already taken, please choose another one.");
         assertThat(ticket.getUserId()).isEqualTo(user.getId());
     }
 }

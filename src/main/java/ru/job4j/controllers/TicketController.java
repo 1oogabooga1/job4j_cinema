@@ -54,7 +54,7 @@ public class TicketController {
         ticket.setUserId(user.getId());
         var savedTicket = ticketService.save(ticket);
         if (savedTicket.isEmpty()) {
-            model.addAttribute("error", "This place probably is already taken, please choose another one.");
+            model.addAttribute("error", "This sit probably is already taken, please choose another one.");
             return "errors/404";
         }
         return "tickets/successful";
