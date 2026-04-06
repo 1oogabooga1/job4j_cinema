@@ -1,5 +1,7 @@
 # Job4j Cinema 
 
+![CI GitHubAction](https://github.com/1oogabooga1/job4j_cinema/actions/workflows/maven.yml/badge.svg)
+
 ## Overview
 **Job4j Cinema** - a simple single-theater ticket booking web application implemented as a course project.  
 The goal of the task: implement user registration/login, display of movies & sessions, and the ticket purchase flow with basic concurrency protection and UX for success/failure.
